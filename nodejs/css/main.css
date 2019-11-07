@@ -1,0 +1,13 @@
+body {
+    font-family: Calibri;
+    font-size: 10pt;
+    background-color: rgb(53, 54, 52);
+}
+
+.header {
+    background-color: rgb(53, 54, 52); height: 20rem; width: 10rem;
+}
+
+.squidStatus {
+    
+}

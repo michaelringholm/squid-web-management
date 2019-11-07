@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+    <head>
+         <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!--<link rel="stylesheet" href="../css/main.css">-->
+        <style>
+            * {
+                font-family: Calibri;
+                font-size: 10pt;                
+            }
+            body {
+                background-color: rgb(53, 54, 52); color: #ffffff;
+            }
+
+            h1 {
+                font-size: 14pt;
+            }
+
+            h2 {
+                font-size: 12pt;
+            }
+
+            .header {
+                background-color: rgb(32, 32, 31);
+            }
+
+            .squidActiveStatus.active{
+                width: 10rem; height: 3rem; line-height: 3rem; background-color: rgb(92, 165, 19); color: #2c2828; margin-top: 1rem; margin-bottom: 1rem; text-align: center; text-transform: uppercase; font-weight: bold;
+            }        
+            
+            .squidActiveStatus.inactive{
+                width: 10rem; height: 3rem; line-height: 3rem; background-color: rgb(139, 8, 8); color: #ffffff; margin-top: 1rem; margin-bottom: 1rem; text-align: center; text-transform: uppercase; font-weight: bold;
+            }
+
+            .squidActiveStatus.deactivating{
+                width: 10rem; height: 3rem; line-height: 3rem; background-color: rgb(201, 58, 33); color: #ffffff; margin-top: 1rem; margin-bottom: 1rem; text-align: center; text-transform: uppercase; font-weight: bold;
+            }                        
+
+            .shellBox {
+
+                width: 100%; height: 26rem; background-color: rgb(53, 54, 52); color: #ffffff; overflow: auto;
+            }
+
+            .card {
+                background-color: rgb(37, 37, 36); color: #ffffff; overflow: auto; 
+            }
+
+            .card button {
+                color: #ffffff;
+            }
+
+            .card button:hover {
+                color: #c4ee08;
+            }
+        </style>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1 style="padding: 0.5rem;">Squid Status Web</h1>
+                <img style="padding: 0.5rem;height: 5rem;" src="https://pbs.twimg.com/media/DXxSP7SVAAAnArQ.png" alt="squid logo">
+                <div style="padding: 0.5rem;">Squid Status Web  v1.1.0, URL: [{url}]</div>
+            </div>
+            <div class="content">
+                
+                <div class="squidActiveStatus {squidActiveStatus}">{squidActiveStatus} / {squidSubStatus}</div>
+                
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Full Status Log
+                            </button>
+                        </h2>
+                        </div>
+                    
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                                <textarea class="shellBox">{squidStatus}</textarea>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Open Ports
+                            </button>
+                        </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                                <textarea class="shellBox">{openPortsLog}</textarea>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            CPU
+                            </button>
+                        </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                                <textarea class="shellBox">{cpuLog}</textarea>
+                        </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </body>
+</html>
